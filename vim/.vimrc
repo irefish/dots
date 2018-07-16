@@ -362,9 +362,6 @@ autocmd FileType html set timeoutlen=200
 " HTML auto close tags
 autocmd FileType html inoremap <lt>/ </<C-x><C-o><Esc>==gi
 
-" map
-autocmd FileType c,cpp,python,tex noremap <F4> :Autoformat<CR>
-
 " python formatter
 autocmd FileType python noremap <F4> :!autopep8 --in-place --aggressive --aggressive %<CR>
 
