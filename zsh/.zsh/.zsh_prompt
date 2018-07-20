@@ -2,4 +2,4 @@
 autoload -U colors && colors
 
 # export prompt
-export PS1="%{$fg_bold[cyan]%}➜%{$reset_color%} %{$fg_bold[green]%}%1~%{$reset_color%} "
+export PS1="%{$fg_bold[cyan]%}%1~%{$reset_color%} "
