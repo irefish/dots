@@ -15,10 +15,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " NERDTree 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" NERDTree git plugin
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 
 " NERD comment plugin
 Plug 'scrooloose/nerdcommenter'
@@ -63,9 +60,9 @@ call plug#end()
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Change default arrows
-let g:NERDTreeDirArrowExpandable = '→'
-let g:NERDTreeDirArrowCollapsible = '↓'
+" auto open 
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufWinEnter * NERDTreeMirror
 
 " Change NERDTree window size
 let g:NERDTreeWinSize = 30
@@ -78,24 +75,6 @@ let NERDTreeCascadeSingleChildDir = 0
 
 " Not cascade open dir
 let NERDTreeCascadeOpenSingleChildDir = 0
-
-"-------------------------------------------------------------------------------
-" NERDTree Setting
-"-------------------------------------------------------------------------------
-
-" Change symbols
-let g:NERDTreeIndicatorMapCustom = {
-      \ "Modified"  : "✹",
-      \ "Staged"    : "✚",
-      \ "Untracked" : "✭",
-      \ "Renamed"   : "➜",
-      \ "Unmerged"  : "═",
-      \ "Deleted"   : "✖",
-      \ "Dirty"     : "✗",
-      \ "Clean"     : "✔︎",
-      \ 'Ignored'   : '☒',
-      \ "Unknown"   : "?"
-      \ }
 
 "-------------------------------------------------------------------------------
 " YouCompleteMe Setting
@@ -382,3 +361,6 @@ autocmd BufNewFile *.h,*.hpp call UltiSnips#Anon(join(readfile($HOME . "/.vim/Te
 
 " python skeleton
 autocmd BufNewFile *.py call UltiSnips#Anon(join(readfile($HOME . "/.vim/Templates/skeleton.py"), "\n"))
+
+" latex skeleton
+autocmd BufNewFile *.tex call UltiSnips#Anon(join(readfile($HOME . "/.vim/Templates/skeleton.tex"), "\n"))

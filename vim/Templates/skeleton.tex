@@ -1,0 +1,60 @@
+\documentclass[hyperref,UTF8]{ctexart}
+
+% font package
+\usepackage{xeCJK}
+\usepackage{fontspec}
+
+% graphic package
+\usepackage{graphicx}
+
+% page size package
+\usepackage{geometry}
+
+% code style package
+\usepackage{listings}
+
+% color package
+\usepackage{xcolor}
+
+% hyper reference package
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black,CJKbookmarks=True]{hyperref}
+
+% font setting
+\setCJKmainfont{${1:font}}
+\setmainfont{$1}
+
+% change page size
+\geometry{a4paper,scale=0.8}
+
+% change time format
+\CTEXoptions[today=old]
+
+% set code style global
+\lstset{
+  numbers=left,
+  numberstyle= \tiny,
+  keywordstyle= \color{ blue!70},
+  commentstyle= \color{red!50!green!50!blue!50},
+  frame=shadowbox,
+  rulesepcolor= \color{ red!20!green!20!blue!20} ,
+  escapeinside=``,
+  xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
+  framexleftmargin=2em
+}
+
+% title
+\title{${2:title}}
+\author{${3:author}}
+
+\begin{document}
+	% make title
+	\maketitle
+	\newpage
+	
+	% make catalog
+	\tableofcontents
+	\newpage
+
+  ${0}
+	
+\end{document}
